@@ -9,8 +9,8 @@ body{
 }
 
 section{
-    width: 150px;
-    height: 150px;
+    width: 500px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -18,14 +18,14 @@ section{
 }
 
 [class*=square]{
-    width: 50px;
-    height: 50px;
+    width: 34%;
+    height: 33%;
     border: 2px solid black;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 100px;
 }
 .square-first-left-top{
     border-top: none;
