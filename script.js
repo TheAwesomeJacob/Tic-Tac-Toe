@@ -29,10 +29,20 @@ function circleOrX(value){
 function winner(){
     
 }
+let counter = 0;
 
 label.forEach( event =>{
     event.addEventListener('click', p =>{
         if(p.target.innerText.length === 0){
+            for(let i = 0; i < col1.length; i++){
+                if(col1.item(i).innerText === "X"){
+                    if(counter === 3){
+                    console.log("Winner!!!");
+                    }else{
+                        counter++;
+                    }
+                }
+            }
         circleOrX(p.target);
         }
     })
