@@ -1,4 +1,6 @@
 const label = document.querySelectorAll("[class*='col']");
+let pointsX = document.querySelector(".pointsOfX");
+let pointsO = document.querySelector(".pointsOfO");
 
 const col = {
     col1: document.querySelectorAll("[class*='col1']"),
@@ -68,14 +70,20 @@ function winner(){
         }
 }
 
+let counter = 0;
+
 function winnerOfX(arr){
     if(areEqual(arr, arrX) === true){
         console.log("Winner of X!!!")
+        ++counter;
+        pointsX.innerText = counter;
     }
 }
 function winnerOfO(arr){
     if(areEqual(arr, arrO) === true){
         console.log("Winner of O!!!")
+        ++counter;
+        pointsO.innerText = counter;
     }
 }
 
