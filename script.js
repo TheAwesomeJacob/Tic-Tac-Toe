@@ -1,15 +1,16 @@
 const label = document.querySelectorAll("[class*='col']");
-const col1 = document.querySelectorAll("[class*='col1']");
-const col2 = document.querySelectorAll("[class*='col2']");
-const col3 = document.querySelectorAll("[class*='col3']");
-const row1 = document.querySelectorAll("[class*='row1']");
-const row2 = document.querySelectorAll("[class*='row2']");
-const row3 = document.querySelectorAll("[class*='row3']");
 
-console.log(label);
-console.log(col1);
-console.log(col2);
-console.log(col3);
+const col = {
+    col1: document.querySelectorAll("[class*='col1']"),
+    col2: document.querySelectorAll("[class*='col2']"),
+    col3: document.querySelectorAll("[class*='col3']")
+}
+
+const row = {
+    row1: document.querySelectorAll("[class*='row1']"),
+    row2: document.querySelectorAll("[class*='row2']"),
+    row3: document.querySelectorAll("[class*='row3']")
+}
 
 let arrX = ["X", "X", "X"];
 let arrO = ["O", "O", "O"];
@@ -50,30 +51,21 @@ function areEqual(arr1, arr2){
     return true;
 }
 function winner(){
-        let colFirst = [col1.item(0).innerText, col1.item(1).innerText, col1.item(2).innerText];
-        let colSecond = [col2.item(0).innerText, col2.item(1).innerText, col2.item(2).innerText];
-        let colThird = [col3.item(0).innerText, col3.item(1).innerText, col3.item(2).innerText];
+    
+        let colFirst = [col.col1.item(0).innerText, col.col1.item(1).innerText, col.col1.item(2).innerText];
+        let colSecond = [col.col2.item(0).innerText, col.col2.item(1).innerText, col.col2.item(2).innerText];
+        let colThird = [col.col3.item(0).innerText, col.col3.item(1).innerText, col.col3.item(2).innerText];
 
-        let rowFirst = [row1.item(0).innerText, row1.item(1).innerText, row1.item(2).innerText];
-        let rowSecond = [row2.item(0).innerText, row2.item(1).innerText, row2.item(2).innerText];
-        let rowThird = [row3.item(0).innerText, row3.item(1).innerText, row3.item(2).innerText];
+        let rowFirst = [row.row1.item(0).innerText, row.row1.item(1).innerText, row.row1.item(2).innerText];
+        let rowSecond = [row.row2.item(0).innerText, row.row2.item(1).innerText, row.row2.item(2).innerText];
+        let rowThird = [row.row3.item(0).innerText, row.row3.item(1).innerText, row.row3.item(2).innerText];
 
-        winnerOfX(colFirst)
-        winnerOfX(colSecond)
-        winnerOfX(colThird)
+        let arrOfRowsAndColumns = [colFirst, colSecond, colThird, rowFirst, rowSecond, rowThird];
 
-        winnerOfX(rowFirst)
-        winnerOfX(rowSecond)
-        winnerOfX(rowThird)
-
-        winnerOfO(colFirst)
-        winnerOfO(colSecond)
-        winnerOfO(colThird)
-
-        winnerOfO(rowFirst)
-        winnerOfO(rowSecond)
-        winnerOfO(rowThird)
-
+        for (let index = 0; index < arrOfRowsAndColumns.length; index++) {
+            winnerOfX(arrOfRowsAndColumns[index]);
+            winnerOfO(arrOfRowsAndColumns[index]);
+        }
 }
 
 function winnerOfX(arr){
